@@ -18,6 +18,9 @@
       <h1>{{ product }}</h1>
       <p>{{ description }}</p>
       <span v-show="onSale">On Sale</span>
+      <p v-if="quantity > 10">In stock</p>
+      <p v-else-if="quantity <= 10 && quantity > 0">Almost sold out!</p>
+      <p v-else>Sold out!</p>
     </div>
   </section>
   <script src="dist/main.js"></script>

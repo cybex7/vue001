@@ -5,6 +5,7 @@ var app = new Vue({
         description: 'A pair of warm, fuzzy socks',
         image: 'assets/1.png',
         href: 'https://crm.aasaam.org',
+        quantity: '11',
         onSale: true
     }
 })
