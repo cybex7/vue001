@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="node_modules/vue/dist/vue.js"></script>
+  <link rel="stylesheet" href="dist/style.css">
 </head>
+
 <body>
-    <div id="app">
-        {{ msg }}
+  <section id="app">
+    <a class="res" :href="href">
+      <img :src="image" :alt="description" width="200">
+    </a>
+    <div class="content">
+      <h1>{{ product }}</h1>
+      <p>{{ description }}</p>
+      <span v-show="onSale">On Sale</span>
     </div>
-    <script src="main.js"></script>
+  </section>
+  <script src="dist/main.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+#app {
+    background: linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    gap: 24px;
+}
+.res {
+    display: block;
+}
+
+.res img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
