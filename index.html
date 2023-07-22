@@ -1,29 +1,55 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<script src="node_modules/vue/dist/vue.js"></script>
+		<link rel="stylesheet" href="dist/style.css" />
+	</head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <script src="node_modules/vue/dist/vue.js"></script>
-  <link rel="stylesheet" href="dist/style.css">
-</head>
+	<body>
+		<!-- ############# first app #app -->
+		<section id="app">
+			<h2>Attribute binding & Condition</h2>
+			<a class="res" :href="href">
+				<img :src="image" :alt="description" width="200" height="202" />
+			</a>
+			<div class="content">
+				<h1>{{ product }}</h1>
+				<p>{{ description }}</p>
+				<span v-show="onSale">On Sale</span>
+				<p v-if="quantity > 10">In stock</p>
+				<p v-else-if="quantity <= 10 && quantity > 0">Almost sold out!</p>
+				<p v-else>Sold out!</p>
+			</div>
+		</section>
 
-<body>
-  <section id="app">
-    <a class="res" :href="href">
-      <img :src="image" :alt="description" width="200">
-    </a>
-    <div class="content">
-      <h1>{{ product }}</h1>
-      <p>{{ description }}</p>
-      <span v-show="onSale">On Sale</span>
-      <p v-if="quantity > 10">In stock</p>
-      <p v-else-if="quantity <= 10 && quantity > 0">Almost sold out!</p>
-      <p v-else>Sold out!</p>
-    </div>
-  </section>
-  <script src="dist/main.js"></script>
-</body>
+		<!-- ############# second app #app2 -->
+		<section id="app2">
+			<h2>Using methods (v-on)</h2>
+			<p>{{ msg }}</p>
+			<button v-on:click="reverseMessage">press me to reverse</button>
+		</section>
 
+		<!-- ############# third app #app3  -->
+		<section id="app3">
+			<h2>Using methods (v-model)</h2>
+			<p>{{ msg }}</p>
+			<input type="text" v-model="msg" />
+		</section>
+
+		<!-- ############# fourth app #app4 - component  -->
+		<section id="app4">
+			<ol>
+				<todo-item
+					v-for="item in fruits"
+					v-bind:todo="item"
+					v-bind:key="item.id"
+				></todo-item>
+			</ol>
+		</section>
+
+		<script src="dist/main.js"></script>
+	</body>
 </html>

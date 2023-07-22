@@ -1,14 +1,19 @@
 {
-  "name": "vuefirst",
-  "version": "1.0.0",
-  "description": "first vue practice",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "vue": "^2.7.14"
-  }
+	"name": "vuefirst",
+	"version": "1.0.0",
+	"description": "first vue practice",
+	"main": "index.js",
+	"author": "Arash Abdous",
+	"license": "ISC",
+	"dependencies": {
+		"vue": "^2.7.14"
+	},
+	"scripts": {
+		"start": "node index.js",
+		"format": "npx prettier --write ."
+	},
+	"devDependencies": {
+		"eslint-config-prettier": "^8.8.0",
+		"prettier": "^3.0.0"
+	}
 }
