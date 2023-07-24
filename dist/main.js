@@ -8,44 +8,39 @@ var app = new Vue({
 		href: "https://crm.aasaam.org",
 		quantity: "11",
 		onSale: true,
-	},
-});
-
-// ###### second app
-var app2 = new Vue({
-	el: "#app2",
-	data: {
-		msg: "reverse my text",
+		details: [
+			{
+				id: 5445464,
+				color: "green",
+				detailImage: "assets/1.png",
+			},
+			{
+				id: 5787,
+				color: "blue",
+				detailImage: "assets/1.jpg",
+			},
+		],
+		sizes: [
+			{
+				id: 464,
+				andaze: "large",
+			},
+			{
+				id: 6464,
+				andaze: "X large",
+			},
+		],
+		cart: 0,
 	},
 	methods: {
-		reverseMessage: function () {
-			this.msg = this.msg.split("").reverse().join("");
+		addToCart: function () {
+			this.cart += 1;
 		},
-	},
-});
-
-// ###### third app
-var app3 = new Vue({
-	el: "#app3",
-	data: {
-		msg: "text",
-	},
-});
-
-// define my first component
-Vue.component("todo-item", {
-	props: ["todo"],
-	template: "<li> {{ todo.text }} </li>",
-});
-
-// ###### fourth app
-var app4 = new Vue({
-	el: "#app4",
-	data: {
-		fruits: [
-			{ id: 0, text: "apple" },
-			{ id: 1, text: "limon" },
-			{ id: 2, text: "banana" },
-		],
+		removeFromCart: function () {
+			this.cart -= 1;
+		},
+		updadeProduct(detailImage) {
+			this.image = detailImage;
+		},
 	},
 });
