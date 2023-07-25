@@ -25,13 +25,13 @@
 				<div v-for="detail in details" :key="detail.id">
 					<p @mouseover="updadeProduct(detail.detailImage)">{{ detail.color }}</p>
 				</div>
-				<!-- sizes
+				Sizes
 				<ol>
 					<li 
 					v-for="size in sizes"
 					:key="size.id"
 					>{{ size.andaze }}</li>
-				</ol> -->
+				</ol>
 				<div class="cart">
 					<button v-on:click="addToCart">Add to Cart</button>
 					<div>cart ({{ cart }})</div>
