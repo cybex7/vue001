@@ -35,11 +35,7 @@
 				<div class="cart">
 					<button v-on:click="addToCart">Add to Cart</button>
 					<div>cart ({{ cart }})</div>
-				</div>
-				<div class="cart">
-					<button v-if="cart > 0" v-on:click="removeFromCart">
-						Remove From Cart
-					</button>
+					<button v-if="cart > 0" v-on:click="removeFromCart">Remove From Cart</button>
 				</div>
 			</div>
 		</section>
