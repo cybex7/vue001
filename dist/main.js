@@ -3,21 +3,27 @@ var app = new Vue({
 	el: "#app",
 	data: {
 		product: "Socks",
-		description: "A pair of warm, fuzzy socks",
-		image: "assets/1.png",
+		brand: "Vue Masery",
+		selectedVariant: 0,
 		href: "https://crm.aasaam.org",
-		quantity: "11",
 		onSale: true,
-		details: [
+		classObject: {
+			'gradient-border': true,  
+			'removeClass': false, 
+			'box': true,
+		},		
+		variants: [
 			{
 				id: 5445464,
 				color: "green",
-				detailImage: "assets/1.png",
+				variantImage: "assets/1.png",
+				variantQuantity: 10,
 			},
 			{
 				id: 5787,
 				color: "blue",
-				detailImage: "assets/1.jpg",
+				variantImage: "assets/1.jpg",
+				variantQuantity: 0,
 			},
 		],
 		sizes: [
@@ -39,8 +45,21 @@ var app = new Vue({
 		removeFromCart: function () {
 			this.cart -= 1;
 		},
-		updadeProduct(detailImage) {
-			this.image = detailImage;
+		updadeProduct(index) {
+			this.selectedVariant = index;
 		},
+	},
+	computed: {
+		image() {
+			return this.variants[this.selectedVariant].variantImage
+		},
+		title() {
+			if(this.onSale){
+				return this.brand + ' ' + this.product;
+			}
+		},
+		inStock() {
+			return this.variants[this.selectedVariant].variantQuantity
+		}
 	},
 });

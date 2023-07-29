@@ -9,34 +9,45 @@
 
 	<body>
 		<!-- ############# first app #app -->
-		<section id="app" class="gradient-border">
-			<h2>Attribute binding & Condition</h2>
+		<section id="app" :class="classObject">
 			<a class="res" :href="href">
-				<img :src="image" :alt="description" width="400" />
+				<img :src="image" width="400" />
 			</a>
 			<div class="content">
-				<h1>{{ product }}</h1>
-				<p>{{ description }}</p>
-				<span v-show="onSale">On Sale</span>
-				<p v-if="quantity > 10">In stock</p>
-				<p v-else-if="quantity <= 10 && quantity > 0">Almost sold out!</p>
-				<p v-else>Sold out!</p>
-				<strong>Colors</strong>
-				<div v-for="detail in details" :key="detail.id">
-					<p @mouseover="updadeProduct(detail.detailImage)">{{ detail.color }}</p>
+				<h1>{{ title }}</h1>
+				<p v-if="inStock > 0">In stock</p>
+				<p v-else-if="inStock == 0">sold out!</p>
+				
+				<!-- colors  -->
+				<div class="colors"
+				v-for="(variant, index) in variants" 
+				:key="variant.id"
+				:style="{ backgroundColor: variant.color }"
+				@mouseover="updadeProduct(index)"
+				>
 				</div>
-				Sizes
+				
+				<!-- info -->
 				<ol>
 					<li 
 					v-for="size in sizes"
 					:key="size.id"
 					>{{ size.andaze }}</li>
 				</ol>
+
+				<!-- add to Cart -->
 				<div class="cart">
-					<button v-on:click="addToCart">Add to Cart</button>
+					<button
+					:disabled="!inStock" 
+					v-on:click="addToCart"
+					:class="{ disableButton: !inStock }"
+					>Add to Cart</button>
 					<div>cart ({{ cart }})</div>
+				</div>
+				<div>
 					<button v-if="cart > 0" v-on:click="removeFromCart">Remove From Cart</button>
 				</div>
+				<p :class="{ outOfStock: !inStock }">Out of Stock</p>
 			</div>
 		</section>
 

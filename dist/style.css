@@ -8,7 +8,7 @@ body {
 	gap: 16px;
 	flex-flow: column wrap;
 	--borderWidth: 3px;
-	--black: #1D1F20;
+	--black: #1d1f20;
 	--white: #e7eaec;
 	background: var(--black);
 }
@@ -27,12 +27,18 @@ section h2 {
 	padding: 8px 16px;
 	color: var(--white);
 }
-.cart button {
+button {
 	background-color: var(--white);
 	border: none;
 	padding: 8px 16px;
 	color: var(--black);
 	cursor: pointer;
+}
+button.disableButton {
+	cursor: not-allowed;
+}
+.outOfStock {
+	text-decoration: line-through;
 }
 section {
 	/* background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%); */
@@ -43,13 +49,15 @@ section {
 	gap: 24px;
 	flex-wrap: wrap;
 	padding: 32px;
-	border-radius: 16px;
 }
-
+.colors {
+	width: 20px;
+	height: 20px;
+}
 .gradient-border {
 	background: var(--black);
 	position: relative;
-	border-radius: var(--borderWidth);
+	border-radius: 4px;
 }
 .gradient-border::after {
 	content: "";
@@ -101,6 +109,6 @@ ul {
 .res img {
 	display: block;
 	max-width: 100%;
-	border-radius: 16px;
+	border-radius: 4px;
 	height: auto;
 }
