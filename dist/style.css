@@ -40,7 +40,7 @@ button.disableButton {
 .outOfStock {
 	text-decoration: line-through;
 }
-section {
+section > div {
 	/* background: linear-gradient(90deg, #fc466b 0%, #3f5efb 100%); */
 	display: flex;
 	align-items: center;
