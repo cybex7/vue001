@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
-		<link rel="stylesheet" href="dist/style.css" />
+		<link rel="stylesheet" href="style.css" />
 	</head>
 
 	<body>
@@ -13,12 +13,10 @@
 			<product :premium="premium" @add-to-cart="addToCart" @remove-from-cart="removeFromCard"></product>
 			<product-details :details="details"></product-details>
 
-				
-				
 			<div>cart ({{ cart }})</div>
 		</section>
 
 		<script src="node_modules/vue/dist/vue.js"></script>
-		<script src="dist/main.js"></script>
+		<script src="main.js"></script>
 	</body>
 </html>
