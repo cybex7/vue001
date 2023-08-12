@@ -41,10 +41,10 @@ Vue.component("product", {
 				v-on:click="addToCart"
 				:class="{ disableButton: !inStock }"
 				>Add to Cart</button>
-				<div>cart ({{ cart }})</div>
+				
 			</div>
 			<div>
-				<button v-if="cart > 0" v-on:click="removeFromCart">Remove From Cart</button>
+				<button v-on:click="removeFromCart">Remove From Cart</button>
 			</div>
 			<p :class="{ outOfStock: !inStock }">Out of Stock</p>
 		</div>
@@ -86,15 +86,17 @@ Vue.component("product", {
 					andaze: "X large",
 				},
 			],
-			cart: 0,
+			
 		};
 	},
 	methods: {
-		addToCart: function () {
-			this.cart += 1;
+		addToCart() {
+			// this.cart += 1;
+			this.$emit('add-to-cart', this.variants[this.selectedVariant].id )
 		},
 		removeFromCart: function () {
-			this.cart -= 1;
+			this.$emit('remove-from-cart')
+			// this.cart -= 1;
 		},
 		updadeProduct(index) {
 			this.selectedVariant = index;
@@ -145,5 +147,17 @@ var app = new Vue({
 	data: {
 		premium: true,
 		details: 'wool',
+		cart: [],
 	},
+
+	methods: {
+		addToCart(value) {
+			// this.cart +=1
+			this.cart.push(value)
+		},
+		removeFromCard() {
+			// this.cart +=1
+			this.cart = []
+		}
+	}
 });

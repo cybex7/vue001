@@ -10,8 +10,12 @@
 	<body>
 		<!-- ############# first app #app -->
 		<section id="app">
-			<product :premium="premium"></product>
+			<product :premium="premium" @add-to-cart="addToCart" @remove-from-cart="removeFromCard"></product>
 			<product-details :details="details"></product-details>
+
+				
+				
+			<div>cart ({{ cart }})</div>
 		</section>
 
 		<script src="node_modules/vue/dist/vue.js"></script>
